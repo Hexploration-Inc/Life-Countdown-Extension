@@ -11,8 +11,9 @@
     --bg-gradient-to: #c3cfe2;
     --text-primary: #2d3436;
     --text-secondary: #636e72;
-    --card-bg: rgba(255, 255, 255, 0.9);
-    --button-bg: rgba(255, 255, 255, 0.7);
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --button-bg: rgba(255, 255, 255, 0.8);
+    --border-glow: rgba(255, 94, 0, 1); /* Bright Orange Glow */
 }
 
 [data-theme="dark"] {
@@ -22,6 +23,7 @@
     --text-secondary: #c3cfe2;
     --card-bg: rgba(45, 52, 54, 0.9);
     --button-bg: rgba(45, 52, 54, 0.7);
+    --border-glow: rgba(0, 255, 170, 1); /* Neon Green */
 }
 
 body {
@@ -34,9 +36,51 @@ body {
     color: var(--text-primary);
     padding: 20px;
     position: relative;
+    overflow: hidden;
 }
 
-/* Header Bar */
+/* Glowing Breathing Border */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    border-radius: 20px;
+    border: 3px solid transparent;
+    box-shadow: 
+        0 0 40px var(--border-glow), /* Outer Glow */
+        inset 0 0 20px var(--border-glow); /* Inner Glow */
+    filter: blur(10px);
+    animation: breathing-border 4s infinite alternate ease-in-out;
+    z-index: -1;
+}
+
+/* More Intense Border Animation */
+@keyframes breathing-border {
+    0% {
+        box-shadow: 
+            0 0 15px var(--border-glow), 
+            inset 0 0 5px var(--border-glow);
+        opacity: 0.6;
+    }
+    50% {
+        box-shadow: 
+            0 0 50px var(--border-glow), 
+            inset 0 0 25px var(--border-glow);
+        opacity: 1;
+    }
+    100% {
+        box-shadow: 
+            0 0 15px var(--border-glow), 
+            inset 0 0 5px var(--border-glow);
+        opacity: 0.6;
+    }
+}
+
+/* Header */
 .header {
     position: absolute;
     top: 15px;
@@ -48,60 +92,67 @@ body {
 }
 
 #lastYear {
-    width: 120px;
+    width: 130px;
     padding: 8px;
     border: 1px solid var(--text-secondary);
-    border-radius: 5px;
+    border-radius: 6px;
     background: var(--card-bg);
     color: var(--text-primary);
     text-align: center;
     font-size: 1rem;
 }
+
 .theme-toggle {
-    font-family: Arial, sans-serif; /* Ensures proper rendering */
-    font-size: 1.5rem;
     background: transparent;
     border: none;
     cursor: pointer;
+    font-size: 1.8rem;
     color: var(--text-primary);
+    transition: transform 0.3s ease;
 }
 
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
 
 /* Countdown */
 .container {
     text-align: center;
     position: relative;
-    margin-top: 50px;
+    margin-top: 80px;
+    width: 90%;
+    max-width: 900px;
 }
 
 .countdown-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 800px;
+    gap: 25px;
+    max-width: 900px;
+    padding: 25px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
 }
 
 .time-unit {
     background: var(--card-bg);
-    padding: 20px;
+    padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    box-shadow: 0 5px 15px rgba(31, 38, 135, 0.1);
     backdrop-filter: blur(4px);
-    transition: transform 0.3s ease;
-}
-
-.time-unit:hover {
-    transform: translateY(-5px);
+    text-align: center;
 }
 
 .number {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: bold;
     color: var(--text-primary);
 }
 
 .label {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 1px;
