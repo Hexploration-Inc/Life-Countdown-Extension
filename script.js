@@ -51,3 +51,17 @@ function updateCountdown() {
 // Update countdown every second
 setInterval(updateCountdown, 1000);
 
+// Function to load and display a random quote
+function displayRandomQuote() {
+    fetch('quotes.json')
+        .then(response => response.json())
+        .then(quotes => {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote').textContent = quotes[randomIndex];
+        })
+        .catch(error => console.error('Error loading quotes:', error));
+}
+
+// Call function on page load
+document.addEventListener('DOMContentLoaded', displayRandomQuote);
+
