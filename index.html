@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html data-theme="light">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Life Countdown</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <input type="number" id="lastYear" placeholder="Year of Death">
+            <button id="themeToggle" class="theme-toggle">&#127769;</button> <!-- 🌙 Default -->
+
+    </div>
+
+    <div class="container">
+        <div id="countdown" class="countdown-grid">
+            <div class="time-unit">
+                <div id="years" class="number">0</div>
+                <div class="label">Years</div>
+            </div>
+            <div class="time-unit">
+                <div id="months" class="number">0</div>
+                <div class="label">Months</div>
+            </div>
+            <div class="time-unit">
+                <div id="days" class="number">0</div>
+                <div class="label">Days</div>
+            </div>
+            <div class="time-unit">
+                <div id="hours" class="number">0</div>
+                <div class="label">Hours</div>
+            </div>
+            <div class="time-unit">
+                <div id="minutes" class="number">0</div>
+                <div class="label">Minutes</div>
+            </div>
+            <div class="time-unit">
+                <div id="seconds" class="number">0</div>
+                <div class="label">Seconds</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

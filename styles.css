@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+[data-theme="light"] {
+    --bg-gradient-from: #f5f7fa;
+    --bg-gradient-to: #c3cfe2;
+    --text-primary: #2d3436;
+    --text-secondary: #636e72;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --button-bg: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] {
+    --bg-gradient-from: #2d3436;
+    --bg-gradient-to: #1a1e20;
+    --text-primary: #f5f7fa;
+    --text-secondary: #c3cfe2;
+    --card-bg: rgba(45, 52, 54, 0.9);
+    --button-bg: rgba(45, 52, 54, 0.7);
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-gradient-from) 0%, var(--bg-gradient-to) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    padding: 20px;
+    position: relative;
+}
+
+/* Header Bar */
+.header {
+    position: absolute;
+    top: 15px;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#lastYear {
+    width: 120px;
+    padding: 8px;
+    border: 1px solid var(--text-secondary);
+    border-radius: 5px;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    text-align: center;
+    font-size: 1rem;
+}
+.theme-toggle {
+    font-family: Arial, sans-serif; /* Ensures proper rendering */
+    font-size: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+
+/* Countdown */
+.container {
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+}
+
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 800px;
+}
+
+.time-unit {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    backdrop-filter: blur(4px);
+    transition: transform 0.3s ease;
+}
+
+.time-unit:hover {
+    transform: translateY(-5px);
+}
+
+.number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
