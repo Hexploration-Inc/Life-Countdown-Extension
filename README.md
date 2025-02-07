@@ -1,7 +1,8 @@
 # 🕰️ Life Countdown
 
 🚀 **Life Countdown** is a **custom Chrome new tab extension** that reminds you of your remaining time in life. It features a **futuristic UI**, **breathing border animation**, and **random motivational quotes** to keep you inspired.
-![Screenshot 2025-02-08 at 01 29 57](https://github.com/user-attachments/assets/0d619b72-6a56-4ec4-b7f3-d9817b9b948d)
+
+![Screenshot 2025-02-08 at 01 29 57](https://github.com/user-attachments/assets/c5a87fb9-a866-4f94-992d-835a406d63e3)
 
 
 ---
